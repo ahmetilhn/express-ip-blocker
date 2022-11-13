@@ -2,7 +2,10 @@ import { CookieOptions, Request, Response } from "express";
 import libConfig from "../configs/lib.config";
 
 export const getCookie = (req: Request): any => {
-  return req.cookies[libConfig.secretKey];
+  if (req.cookies[libConfig.secretKey]) {
+    return JSON.parse(req.cookies[libConfig.secretKey]);
+  }
+  return undefined;
 };
 
 export const setCookie = (
