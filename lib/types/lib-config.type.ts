@@ -1,5 +1,5 @@
 type LibConfigType = {
-  count: number;
+  limit: number;
   secretKey: string;
   reqBlockMessage: string;
 };
