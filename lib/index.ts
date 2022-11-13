@@ -27,7 +27,7 @@ class ExpressIPBlocker {
       }
       libCookie = JSON.parse(libCookie);
       const remainingCount: number = Number(libCookie.count) - 1;
-      if (remainingCount <= this.config.count) {
+      if (remainingCount > 0) {
         const newCookieVal = { count: remainingCount, ip: reqIP };
         setCookie(req, res, newCookieVal);
         next();
