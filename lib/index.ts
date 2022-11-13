@@ -20,15 +20,22 @@ class ExpressIPBlocker {
     if (!!reqIP) {
       let libCookie: any = getCookie(req);
       if (!libCookie) {
-        const cookieVal = { count: libConfig.count, ip: reqIP };
+        const cookieVal = { count: this.config.count, ip: reqIP };
         setCookie(req, res, cookieVal);
         next();
         return;
       }
       libCookie = JSON.parse(libCookie);
-      const remainingCount = Number(libCookie.count) - 1;
-      const newCookieVal = { count: remainingCount, ip: reqIP };
-      setCookie(req, res, newCookieVal);
+      const remainingCount: number = Number(libCookie.count) - 1;
+      if (remainingCount <= this.config.count) {
+        const newCookieVal = { count: remainingCount, ip: reqIP };
+        setCookie(req, res, newCookieVal);
+        next();
+        return;
+      }
+      res.status(429).json({
+        msg: this.config.reqBlockMessage,
+      });
     }
   };
 }
