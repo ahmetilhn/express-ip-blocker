@@ -19,8 +19,8 @@ class ExpressIPBlocker {
   };
   checkIP = (req: Request, res: Response, next: NextFunction): void => {
     const reqIP: any = ip.address();
-    if (!!reqIP) {
-      let libCookie: CookieValType | undefined = getCookie(req);
+    let libCookie: CookieValType | undefined = getCookie(req);
+    if (!!reqIP && reqIP === libCookie?.ip) {
       // first req
       if (!libCookie) {
         const cookieVal = {
