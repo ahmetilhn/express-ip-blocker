@@ -118,8 +118,10 @@ etag@~1.8.1:
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
   integrity sha512-aIL5Fx7mawVa300al2BnEE4iNvo1qETxLrPI/o05L7z6go7fCw1J6EQmbK4FmJ2AS7kgVF/KEZWufBfdClMcPg==
 
-express-ip-blocker@../package:
+express-ip-blocker-current@^1.0.0:
   version "1.0.0"
+  resolved "https://registry.yarnpkg.com/express-ip-blocker-current/-/express-ip-blocker-current-1.0.0.tgz#defb86a269abc72f40c3c1849d6f62ca2b5aaac8"
+  integrity sha512-RefcFlviZsWfYauF+LSNmvu6pkBsKOPMZFVYcFGxXU9S1Cqv2iVM0LfPbBaoYsfVnF9eqadYtOAmZ1I96c7EIA==
   dependencies:
     ip "^1.1.8"
 

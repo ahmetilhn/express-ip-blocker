@@ -1,6 +1,7 @@
 {
-  "name": "express-ip-blocker",
-  "version": "1.0.0",
+  "name": "express-ip-blocker-current",
+  "version": "1.0.1",
+  "description": "Prevents multiple requests to express api",
   "main": "dist/index.js",
   "repository": "https://github.com/ahmetilhan24/express-ip-blocker.git",
   "author": "Ahmet ilhan <ahmetilhan.dev@gmail.com>",

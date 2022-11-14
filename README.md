@@ -24,7 +24,7 @@ _Optimum versions_
 const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
-const ExpressIPBlocker = require("express-ip-blocker");
+const ExpressIPBlocker = require("express-ip-blocker-current");
 const expressIPBlocker = new ExpressIPBlocker();
 // You have to do this for the package to work
 app.use(cookieParser());
