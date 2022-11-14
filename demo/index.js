@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const ExpressIPBlocker = require("express-ip-blocker-current");
+const ExpressIPBlocker = require("../dist/index.js");
 const ipBlocker = new ExpressIPBlocker();
 const cookieParser = require("cookie-parser");
 app.use(cookieParser());

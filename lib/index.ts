@@ -19,8 +19,8 @@ class ExpressIPBlocker {
   };
   checkIP = (req: Request, res: Response, next: NextFunction): void => {
     const reqIP: any = ip.address();
-    let libCookie: CookieValType | undefined = getCookie(req);
-    if (!!reqIP && reqIP === libCookie?.ip) {
+    if (!!reqIP) {
+      let libCookie: CookieValType | undefined = getCookie(req);
       // first req
       if (!libCookie) {
         const cookieVal = {
@@ -41,6 +41,12 @@ class ExpressIPBlocker {
         };
         setCookie(req, res, newCookieVal);
         next();
+        return;
+      }
+      if (reqIP !== libCookie.ip) {
+        res.status(404).json({
+          msg: "Your IP address should not be changed manually.",
+        });
         return;
       }
       const remainingCount: number = Number(libCookie.count) - 1;
